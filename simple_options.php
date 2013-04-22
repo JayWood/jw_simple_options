@@ -19,7 +19,7 @@ class JW_SIMPLE_OPTIONS{
 	 *	@access private
 	 *	@var string Class version number.
 	 */
-	private $ver = '1.0b';
+	private $ver = '1.1';
 	
 	/**
 	 *	@access private
