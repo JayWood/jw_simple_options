@@ -262,7 +262,6 @@ class JW_SIMPLE_OPTIONS{
 		if(empty($opData['time'])) $opData['time'] = $def['time'];
 		
 		?>
-        <!-- <? print_r($opData); ?> -->
         <input type="text" name="<? echo $this->prefix.$key; ?>[multiplier]" value="<? echo $opData['multiplier']; ?>" class="jw_multiplier"/><select name="<? echo $this->prefix.$key; ?>[time]">
         	<option value="60" <? selected($opData['time'], 60, true); ?>>Minutes</option>
             <option value="<? echo 60*60; ?>" <? selected($opData['time'], 60*60, true); ?>>Hours</option>
@@ -390,6 +389,7 @@ class JW_SIMPLE_OPTIONS{
         	<div class="wrap">
             	<div id="icon-options-general" class="icon32"><br /></div>
                 <h2><? echo $this->plugin_title; ?></h2>
+                <p class="description">Options page powered by: <a href="https://github.com/JayWood/jw_simple_options" title="A simple, easy to configure, flexible, and open-source framework to make options pages on the fly.">JW Simple Options</a></p>
                 <form method="post" action="options.php">
                 <? settings_fields($this->prefix.'options'); ?>
                 <table class="form-table">
