@@ -1,4 +1,4 @@
-<?
+<?php
 
 include('simple_options.php');
 
