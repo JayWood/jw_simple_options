@@ -3,6 +3,9 @@ Thank you for taking time to download, or at least consider downloading, my Word
 
 That's when this little puppy was born.  This wordpress options framework leverages the WordPress settings API, and takes the guess work out of how the options page should look.  All you have to do is drop in a configuration array to the class, and you're done.  Defaults are already built in if you want to only provide options data, though not recommended.
 
+### Pull Requests
+Please make a pull request to the **development branch** only.  All request to the `master` branch will be denied.
+
 ### Documentation
 The code itself has been documented to the best of my ability within the necessary files.  However, my attempt at following PHP documentation standards may be less than some would come to expect, although I'm pretty sure most of you can understand the inline documentation.  An example configuration file should be enough to get you started, however, `not all config options are included in the file`.
 
