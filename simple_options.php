@@ -391,7 +391,7 @@ class JW_SIMPLE_OPTIONS {
         	<div class="wrap">
             	<div id="icon-options-general" class="icon32"><br /></div>
                 <h2><?php echo $this->plugin_title; ?></h2>
-                <p class="description">Options page powered by: <a href="https://github.com/JayWood/jw_simple_options" title="A simple, easy to configure, flexible, and open-source framework to make options pages on the fly.">JW Simple Options</a></p>
+                <p class="description">Options page powered by: <a href="https://github.com/JayWood/jw_simple_options" title="A simple, easy to configure, flexible, and open-source framework to make options pages on the fly.">JW Simple Options - ( Fork on Github )</a></p>
                 <form method="post" action="options.php">
                 <?php settings_fields( $this->prefix.'options' ); ?>
                 <table class="form-table">
