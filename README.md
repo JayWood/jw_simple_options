@@ -9,7 +9,10 @@ The code itself has been documented to the best of my ability within the necessa
 ### Currently Supported Field Types
 * `Checkbox`
 * `Timeframe`
+* `Text Area`
 * `Textbox`
+* `Color`
+* `Number`
 * `Radio`
 * `WP Editor` - with settings for media buttons & teeny
 * `Media Upload`
