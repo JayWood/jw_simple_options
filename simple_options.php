@@ -15,15 +15,15 @@
 class JW_SIMPLE_OPTIONS {
 
 	/**
-	 *
+	 *	Simple options Version Number
 	 *
 	 * @access private
 	 * @var string Class version number.
 	 */
-	private $ver = '1.1';
+	private $ver = '1.2';
 
 	/**
-	 *
+	 * Options array passed to class
 	 *
 	 * @access private
 	 * @var array() A map of the options data.
@@ -364,7 +364,14 @@ class JW_SIMPLE_OPTIONS {
 	 * Registering Admin information.
 	 */
 	public function register_admin_deps() {
-		foreach ( $this->options as $k => $v ) register_setting( $this->prefix.'options', $this->prefix.$k );
+		foreach ( $this->options as $k => $v ){
+			register_setting( $this->prefix.'options', $this->prefix.$k );
+			if( ! empty( $v['def'] ) ){
+				// Then set the default value.
+				add_option( $this->prefix.$k, $v['def'] );
+			}
+
+		}
 
 		$sdir = ( $this->is_theme ) ? get_stylesheet_directory_uri().'/lib/jw_simple_options' : plugins_url( 'jw_simple_options', dirname( __FILE__ ) );
 		wp_register_style( 'spectrum', $sdir.'/css/spectrum.css', '', '1.0.9' );
