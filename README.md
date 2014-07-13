@@ -1,12 +1,27 @@
-Thank you for taking time to download, or at least consider downloading, my Options Framework.  This framework was designed out of a necessity for my clients and I.  Furthermore, I determined to write my own when I was unhappy in how others worked.  Not to mention the fact that it's better to write it yourself so you know your code, rather than to try and decipher another individuals coding methods.
+## Simple Options - A WordPress Options Framework
+Thank you for taking time to download, or at least consider downloading, my WordPress Options Framework.  This options framework was designed out of both a necessity and a side-project of mine. I also noticed there weren't that many frameworks around at the time of writing this, and I just didn't see the point of paying money for a huge frameworks when all I usually need is a few options.
 
-> Documentation is lacking at this point.
-
-### Licensing
-This work will be licensed under the [Creative Commons Attribution Share Alike](http://creativecommons.org/licenses/by-sa/3.0/deed.en_US) license.  Which means you can do as you please with this source code, provided you follow the attribution guidelines within the LICENSE file itself.  **DO NOT JUST DOWNLOAD AND SELL THIS CODE, IT'S IMMORAL AND UNETHICAL**
+That's when this little puppy was born.  This wordpress options framework leverages the WordPress settings API, and takes the guess work out of how the options page should look.  All you have to do is drop in a configuration array to the class, and you're done.  Defaults are already built in if you want to only provide options data, though not recommended.
 
 ### Documentation
-The code itself has been documented to the best of my ability within the necessary files.  However, my attempt at following PHP documentation standards may be less than some would come to expect, although I'm pretty sure most of you can understand the inline documentation.  An example configuration file should be enough to get you started, however, not all config options are enabled.  View the course of the simple_options.php for more neat little functions.
+The code itself has been documented to the best of my ability within the necessary files.  However, my attempt at following PHP documentation standards may be less than some would come to expect, although I'm pretty sure most of you can understand the inline documentation.  An example configuration file should be enough to get you started, however, `not all config options are included in the file`.
+
+### Currently Supported Field Types
+* `Checkbox`
+* `Timeframe`
+* `Textbox`
+* `Radio`
+* `WP Editor` - with settings for media buttons & teeny
+* `Media Upload`
+* `Password`
+* `Data Array` - Neat little thing to allow data matrices
+* `Select`
+* `Section` - Header tags to separate options.
+
+
+### Licensing
+This work is licensed under the GPLv2 License to be WordPress plugin compatible.  If you think this could use a little extra input, by all means make a pull request to the development branch.
 
 ### Support
-Support for this framework is only provided on GitHub.
+* Need support for this library? [Open a ticket](https://github.com/JayWood/jw_simple_options/issues)
+* Have a feature you think should be included?  Make a [pull request](https://github.com/JayWood/jw_simple_options/pulls) to the `development` branch.
