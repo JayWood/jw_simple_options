@@ -114,10 +114,11 @@ class JW_SIMPLE_OPTIONS {
 	 */
 	private $is_theme = false;
 
+/*
 	function JW_SIMPLE_OPTIONS( $ops ) {
 		$this->__construct( $ops );
 	}
-
+*/
 	function __construct( array $ops ) {
 		// Setup variables
 		$this->plugin_title = empty( $ops['plugin_title'] ) ? $this->plugin_title : $ops['plugin_title'];
@@ -145,6 +146,7 @@ class JW_SIMPLE_OPTIONS {
 	 */
 	public function buildCheckFields( $key, $data, $def = false ) {
 		$opData = get_option( $this->prefix.$key, $def );
+		ob_start();
 ?>
         	<fieldset>
 			<?php foreach ( $data as $k => $v ): ?>
@@ -154,6 +156,10 @@ class JW_SIMPLE_OPTIONS {
             <?php endforeach; ?>
             </fieldset>
         <?php
+        
+        $output = ob_get_contents();
+        ob_end_clean();
+
 		return $output;
 
 	}
@@ -303,6 +309,7 @@ class JW_SIMPLE_OPTIONS {
 	 * Loads the admin menu with user-defined flags.
 	 */
 	function load_admin_menu() {
+
 		switch ( $this->menu_type ) {
 		case 'page':
 			$hook = add_pages_page( $this->plugin_title, $this->menu_title, $this->cap, $this->slug, array( &$this, 'render_options_page' ) );
@@ -338,7 +345,7 @@ class JW_SIMPLE_OPTIONS {
 			$hook = add_media_page( $this->plugin_title, $this->menu_title, $this->cap, $this->slug, array( &$this, 'render_options_page' ) );
 			break;
 		default:
-			$hook = add_menu_page( $this->plugin_title, $this->menu_title, $this->cap, $this->slug, array( &$this, 'render_options_page' ), $this->icon, $this->menu_pos );
+			$hook = add_menu_page( $this->plugin_title, $this->menu_title, $this->cap, $this->slug, array( &$this, 'render_options_page' ), $this->icon, isset($this->menu_pos) ? $this->menu_pos : 0 );
 			break;
 		}
 		$this->hook = $hook;
@@ -473,7 +480,7 @@ class JW_SIMPLE_OPTIONS {
 			if ( function_exists( 'wp_enqueue_media' ) ) $output = $this->buildMediaOption( $key );
 			break;
 		case 'check':
-			$output = $this->buildCheckFields( $key, $data['fields'], $data['def'] );
+			$output = $this->buildCheckFields( $key, $data['fields'], isset($data['def'])? $data['def'] : '' );
 			break;
 		case 'radio':
 			$output = $this->buildRadioFields( $key, $data['fields'], $data['def'] );
