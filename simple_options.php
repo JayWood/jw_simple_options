@@ -20,7 +20,7 @@ class JW_SIMPLE_OPTIONS {
 	 * @access private
 	 * @var string Class version number.
 	 */
-	private $ver = '1.3';
+	private $ver = '1.3.1';
 
 	/**
 	 * Options array passed to class
@@ -157,8 +157,7 @@ class JW_SIMPLE_OPTIONS {
             </fieldset>
         <?php
         
-        $output = ob_get_contents();
-        ob_end_clean();
+        $output = ob_get_clean();
 
 		return $output;
 
@@ -345,7 +344,7 @@ class JW_SIMPLE_OPTIONS {
 			$hook = add_media_page( $this->plugin_title, $this->menu_title, $this->cap, $this->slug, array( &$this, 'render_options_page' ) );
 			break;
 		default:
-			$hook = add_menu_page( $this->plugin_title, $this->menu_title, $this->cap, $this->slug, array( &$this, 'render_options_page' ), $this->icon, isset($this->menu_pos) ? $this->menu_pos : 0 );
+			$hook = add_menu_page( $this->plugin_title, $this->menu_title, $this->cap, $this->slug, array( &$this, 'render_options_page' ), $this->icon, isset($this->menu_pos) ? $this->menu_pos : null );
 			break;
 		}
 		$this->hook = $hook;
