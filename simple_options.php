@@ -35,6 +35,21 @@ class JW_SIMPLE_OPTIONS {
 	 *
 	 * Accepts: page, link, comment, management, option, theme, plugin, user, dashboard, post, or media.
 	 *
+	 * Type  		Location
+	 * -----------------------------
+	 * default		New tab
+	 * page			Pages
+	 * link			Link Manager
+	 * comment		Comments
+	 * management	Tools
+	 * option 		Settings
+	 * theme 		Appearance
+	 * plugin		Plugin
+	 * user			Users
+	 * dashboard	Dashboard
+	 * post			Posts
+	 * media		Media
+	 * 
 	 * @access private
 	 * @var string Default: 'new'
 	 */
@@ -123,6 +138,7 @@ class JW_SIMPLE_OPTIONS {
 		// Setup variables
 		$this->plugin_title = empty( $ops['plugin_title'] ) ? $this->plugin_title : $ops['plugin_title'];
 		$this->menu_title = empty( $ops['menu_title'] ) ? $this->menu_title : $ops['menu_title'];
+		$this->menu_type = empty( $ops['menu_type'] ) ? $this->menu_type : $ops['menu_type'];
 		$this->cap = empty( $ops['capability'] ) ? $this->cap : $ops['capability'];
 		$this->slug = empty( $ops['slug'] ) ? $this->prefix.$this->slug : $ops['slug'];
 		$this->options = empty( $ops['opData'] ) ? $this->options : $ops['opData'];
@@ -134,8 +150,6 @@ class JW_SIMPLE_OPTIONS {
 		add_action( 'admin_init', array( $this, 'register_admin_deps' ) );
 		add_action( 'admin_menu', array( $this, 'load_admin_menu' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'load_admin_deps' ) );
-
-
 	}
 
 	/**
