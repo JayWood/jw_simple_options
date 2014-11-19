@@ -412,14 +412,14 @@ class JW_SIMPLE_OPTIONS {
             	<div id="icon-options-general" class="icon32"><br /></div>
                 <h2><?php echo $this->plugin_title; ?></h2>
                 <p class="description">Options page powered by: <a href="https://github.com/JayWood/jw_simple_options" title="A simple, easy to configure, flexible, and open-source framework to make options pages on the fly.">JW Simple Options - ( Fork on Github )</a></p>
-                <?php do_action( 'jw_options_before_fields' ); ?>
+                <?php do_action( 'jw_options_before_fields', $this->slug ); ?>
                 <form method="post" action="options.php">
                 <?php settings_fields( $this->prefix.'options' ); ?>
                 <table class="form-table">
                 	<tbody>
                     	<?php
-		foreach ( $this->options as $k => $v ) {
-			if ( $v['type'] == 'section' ) : ?>
+						foreach ( $this->options as $k => $v ) {
+							if ( $v['type'] == 'section' ) : ?>
                                 <tr valign="top">
                                 	<td colspan="2" class="jw_options_section"><h3 class="jw_options_section <?php echo $this->prefix.$k; ?>"><?php echo $v['name']; ?></h3></td>
                                 </tr>
@@ -434,15 +434,15 @@ class JW_SIMPLE_OPTIONS {
 							</tr>
                             <?php endif; ?>
 							<?php
-		}
-?>
+						}
+					?>
                     </tbody>
                 </table>
                 <p class="submit">
                 	<input type="submit" name="submit" id="submit" class="button-primary" value="Save Changes">
                 </p>
                 </form>
-                <?php do_action( 'jw_options_after_fields' ); ?>
+                <?php do_action( 'jw_options_after_fields', $this->slug ); ?>
             </div>
         <?php
 	}
