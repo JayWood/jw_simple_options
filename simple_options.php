@@ -472,6 +472,11 @@ class JW_SIMPLE_OPTIONS {
 	 * Offload rendering where necessary.
 	 */
 	public function render_option_field( $key, $data ) {
+
+		if ( empty( $data['def'] ) ){
+			$data['def'] = '';
+		}
+		
 		switch ( $data['type'] ) {
 		case 'text':
 			$output = '<input type="text" name="'.$this->prefix.$key.'" id="'.$this->prefix.$key.'" value="'.strip_tags( get_option( $this->prefix.$key, $data['def'] ) ).'" class="regular-text" />';
