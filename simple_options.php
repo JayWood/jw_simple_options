@@ -518,6 +518,9 @@ class JW_SIMPLE_OPTIONS {
 		case 'section':
 			$output = '<h3 class="jw_options_section '.$this->prefix.$key.'" id="'.$this->prefix.$key.'">'.$data['name'].'</h3>';
 			break;
+		case 'custom':
+			$output = $data['content'];
+			break;
 		default:
 			$output = '<!-- Option ID: '.$key.'.'.$data['type'].' is not a valid option type. -->';
 			break;
